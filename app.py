@@ -20,7 +20,6 @@ def home():
 @app.route('/crear-tarea',methods=['POST'])
 def crear_tarea():
     tarea = Tarea(contenido=request.form['content'],hecho=False)
-    # print(tarea.contenido)
     db.session.add(tarea)
     db.session.commit()
     return redirect(url_for("home"))
@@ -28,7 +27,6 @@ def crear_tarea():
 @app.route("/realizada/<int:id>")
 def realizada(id):
     tarea = Tarea.query.filter_by(id=id).first()
-    print(tarea.hecho)
     tarea.hecho = not(tarea.hecho)
     db.session.commit()
     return redirect(url_for("home"))

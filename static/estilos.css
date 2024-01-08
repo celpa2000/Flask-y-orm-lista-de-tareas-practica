@@ -1,0 +1,9 @@
+body{
+    background-color: rgb(184, 154, 212);
+}
+
+.hecho{
+
+    text-decoration: line-through;
+    color: gray;
+}
