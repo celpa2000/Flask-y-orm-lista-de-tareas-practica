@@ -10,6 +10,7 @@
 
     <div class="container d-flex">
         <h1>Lista de tareas con Flask y Mysqlalchemy</h1>
+        {% block body %}
         <form action="/crear-tarea" method="post" class="form-control">
             <div>
                 <input type="text" name="content" placeholder="Agrege tarea">
@@ -17,6 +18,7 @@
             <div>
                 <button class="btn btn-secondary" type="submit">Enviar</button>
             </div>
+            
         </form>
         
         <ul>
@@ -24,11 +26,13 @@
                 <li>
                     {{tarea.contenido}}
                 </li>
+                <a href="/realizada/{{ tarea.id }}">Editar</a>
+                <a href="/eliminar/{{ tarea.id }}">Eliminar</a> 
                 
             {% endfor %}
         </ul>
     </div>
-    {% block body %}
+    
         
     {% endblock %}
 </body>

@@ -25,15 +25,16 @@ def crear_tarea():
     db.session.commit()
     return redirect(url_for("home"))
 
-@app.route("/realizada/<id>")
+@app.route("/realizada/<int:id>")
 def realizada(id):
-    tarea = Tarea.query.filter_by(id=int(id)).first()
+    tarea = Tarea.query.filter_by(id=id).first()
+    print(tarea.hecho)
     tarea.hecho = not(tarea.hecho)
     db.session.commit()
     return redirect(url_for("home"))
-@app.route("/eliminar/<id>")
+@app.route("/eliminar/<int:id>")
 def eliminar(id):
-    tarea = Tarea.query.filter_by(id=int(id)).delete() 
+    tarea = Tarea.query.filter_by(id=id).delete() 
     db.session.commit()
     return redirect(url_for("home")) 
 
