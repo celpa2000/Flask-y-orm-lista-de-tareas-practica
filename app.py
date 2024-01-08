@@ -17,10 +17,10 @@ def home():
     return render_template('index.html',tareas=tareas)
 
 #crear otra vista
-@app.route('/Crear-tarea',methods=['POST','GET'])
+@app.route('/crear-tarea',methods=['POST'])
 def crear_tarea():
-    tarea = Tarea(contenido=request.form['contenido'],hecho=False)
-    
+    tarea = Tarea(contenido=request.form['content'],hecho=False)
+    # print(tarea.contenido)
     db.session.add(tarea)
     db.session.commit()
     return redirect(url_for("home"))
