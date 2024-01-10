@@ -22,17 +22,18 @@
             
         </form>
         
-        <ul class="list-group d-flex mt-4">
+        <ul class="list-group d-flex w-50 mt-4 m-auto">
             {% for tarea in tareas %}
-                <li class="list-group-item">
+                <li class="list-group-item mb-2 me-2">
                    <span class="{% if tarea.hecho %} hecho {% endif %} "> 
                         {{tarea.contenido}}
                     </span>     
                     
+                    <a href="/realizada/{{ tarea.id }}" class="btn btn-primary">Realizada</a>
+                    <a href="/eliminar/{{ tarea.id }}" class="btn btn-dark">Eliminar</a> 
                    
                 </li>
-                <a href="/realizada/{{ tarea.id }}" class="btn btn-primary">Realizada</a>
-                <a href="/eliminar/{{ tarea.id }}" class="btn btn-dark">Eliminar</a> 
+                
                 
             {% endfor %}
         </ul>
