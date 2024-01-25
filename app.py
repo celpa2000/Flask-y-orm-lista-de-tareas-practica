@@ -16,7 +16,7 @@ def home():
     tareas = Tarea.query.all()
     return render_template('index.html',tareas=tareas)
 
-#crear otra vista
+
 @app.route('/crear-tarea',methods=['POST'])
 def crear_tarea():
     tarea = Tarea(contenido=request.form['content'],hecho=False)
